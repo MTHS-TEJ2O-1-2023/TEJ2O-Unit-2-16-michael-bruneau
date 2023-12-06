@@ -23,19 +23,21 @@ input.onButtonPressed(Button.A, function () {
   )
   basic.showNumber(distanceFromObject)
   basic.pause(500)
-
-  // if distanceFromObject is less then or equal to 10 display to close if not dislay ok
-  if (distanceFromObject <= 10) {
-    radio.sendString('To close.')
-  } else {
-    radio.sendString('Good.')
-  }
+  radio.sendNumber(distanceFromObject)
 })
 
 // waiting for string from other microbit
-radio.onReceivedString(function (receivedString) {
+radio.onReceivedNumber(function (receivedNumber) {
   basic.clearScreen()
-  basic.showString(receivedString)
+  basic.showNumber(receivedNumber)
+  distanceFromObject = receivedNumber
+
+  // if distanceFromObject is less then or equal to 10 display to close if not dislay ok
+  if (distanceFromObject <= 10) {
+    basic.showString('To close.')
+  } else {
+    basic.showString('Good.')
+  }
   basic.pause(500)
   basic.showIcon(IconNames.Happy)
 })
