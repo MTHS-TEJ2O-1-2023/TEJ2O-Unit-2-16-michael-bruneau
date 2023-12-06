@@ -6,4 +6,5 @@
 */
 
 // setup
+radio.setGroup(7)
 basic.showIcon(IconNames.Happy)
