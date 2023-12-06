@@ -21,7 +21,7 @@ input.onButtonPressed(Button.A, function () {
     DigitalPin.P2, 
     PingUnit.Centimeters
   )
-  basic.showNumber(distanceFromObject)
+  basic.showString(distanceFromObject.toString() + ('cm'))
   basic.pause(500)
   radio.sendNumber(distanceFromObject)
 })
@@ -29,7 +29,7 @@ input.onButtonPressed(Button.A, function () {
 // waiting for string from other microbit
 radio.onReceivedNumber(function (receivedNumber) {
   basic.clearScreen()
-  basic.showNumber(receivedNumber)
+  basic.showString(receivedNumber.toString() + ('cm'))
   distanceFromObject = receivedNumber
 
   // if distanceFromObject is less then or equal to 10 display to close if not dislay ok
