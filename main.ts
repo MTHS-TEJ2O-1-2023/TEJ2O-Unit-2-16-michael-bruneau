@@ -17,8 +17,8 @@ input.onButtonPressed(Button.A, function () {
 
   // checking distance
   distanceFromObject = sonar.ping(
-    DigitalPin.P1, 
-    DigitalPin.P2, 
+    DigitalPin.P1,
+    DigitalPin.P2,
     PingUnit.Centimeters
   )
   basic.showString(distanceFromObject.toString() + ('cm'))
