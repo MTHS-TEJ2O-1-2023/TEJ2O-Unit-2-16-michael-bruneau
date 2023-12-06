@@ -1,8 +1,9 @@
 /* Copyright (c) 2020 MTHS All rights reserved
  *
- * Created by: Mr. Coxall
- * Created on: Sep 2020
+ * Created by: Michael Bruneau
+ * Created on: Dec 2023
  * This program ...
 */
 
-basic.showString('Hello, World!')
+// setup
+basic.showIcon(IconNames.Happy)
