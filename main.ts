@@ -14,6 +14,8 @@ basic.showIcon(IconNames.Happy)
 
 input.onButtonPressed(Button.A, function () {
   basic.clearScreen()
+
+  // checking distance
   distanceFromObject = sonar.ping(
     DigitalPin.P1, 
     DigitalPin.P2, 
@@ -21,6 +23,8 @@ input.onButtonPressed(Button.A, function () {
   )
   basic.showNumber(distanceFromObject)
   basic.pause(500)
+
+  // if distanceFromObject is less then or equal to 10 display to close if not dislay ok
   if (distanceFromObject <= 10) {
     radio.sendString('To close.')
   } else {
@@ -28,6 +32,7 @@ input.onButtonPressed(Button.A, function () {
   }
 })
 
+// waiting for string from other microbit
 radio.onReceivedString(function (receivedString) {
   basic.clearScreen()
   basic.showString(receivedString)
