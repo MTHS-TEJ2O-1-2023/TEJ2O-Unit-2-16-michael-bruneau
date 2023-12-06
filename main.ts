@@ -19,4 +19,9 @@ input.onButtonPressed(Button.A, function () {
     PingUnit.Centimeters
   )
   basic.showNumber(distanceFromObject)
+  basic.pause(500)
+  if (distanceFromObject <= 10)
+    radio.sendNumber(distanceFromObject)
+    basic.pause(500)
+    radio.sendString('To close.')
 })
