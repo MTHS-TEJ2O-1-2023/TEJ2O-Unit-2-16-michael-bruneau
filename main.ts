@@ -13,6 +13,7 @@ radio.setGroup(7)
 basic.showIcon(IconNames.Happy)
 
 input.onButtonPressed(Button.A, function () {
+  basic.clearScreen()
   distanceFromObject = sonar.ping(
     DigitalPin.P1, 
     DigitalPin.P2, 
@@ -28,4 +29,11 @@ input.onButtonPressed(Button.A, function () {
     radio.sendNumber(distanceFromObject)
     radio.sendString('Good.')
   }
+})
+
+radio.onReceivedString(function (receivedString) {
+  basic.clearScreen()
+  basic.showString(receivedString)
+  basic.pause(500)
+  basic.showIcon(IconNames.Happy)
 })
