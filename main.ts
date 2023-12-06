@@ -5,14 +5,18 @@
  * This program ...
 */
 
+// variables
+let distanceFromObject: number = 0
+
 // setup
 radio.setGroup(7)
 basic.showIcon(IconNames.Happy)
 
 input.onButtonPressed(Button.A, function () {
-  sonar.ping(
+  distanceFromObject = sonar.ping(
     DigitalPin.P1, 
     DigitalPin.P2, 
     PingUnit.Centimeters
   )
+  basic.showNumber(distanceFromObject)
 })
