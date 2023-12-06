@@ -22,11 +22,8 @@ input.onButtonPressed(Button.A, function () {
   basic.showNumber(distanceFromObject)
   basic.pause(500)
   if (distanceFromObject <= 10) {
-    radio.sendNumber(distanceFromObject)
-    basic.pause(500)
     radio.sendString('To close.')
   } else {
-    radio.sendNumber(distanceFromObject)
     radio.sendString('Good.')
   }
 })
