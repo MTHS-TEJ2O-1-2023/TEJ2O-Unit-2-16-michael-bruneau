@@ -66,16 +66,15 @@ display.show(Image.HAPPY)
 while True:
     if button_a.is_pressed():
         distance = sonar.distance_mm() / 10
-        display.show((str(distance)) + ("cm"))
+        display.scroll((str(distance)) + ("cm"))
         sleep(500)
-        radio.send(distance)
+        radio.send(str(distance))
 
-    if message == distance:
+    if message:
         display.clear()
-        display.show((str(message)) + ("cm"))
-        distance = message
+        display.scroll((str(message)) + ("cm"))
 
         if distance <= 10:
-            display.show("to close")
+            display.scroll("to close")
         else:
-            display.show("good")
+            display.scroll("good")
