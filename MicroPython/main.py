@@ -59,21 +59,23 @@ sonar = HCSR04()
 message = radio.recieve()
 
 # setup
+radio.on()
+radio.config(group=7)
 display.show(Image.HAPPY)
 
 while True:
     if button_a.is_pressed():
         distance = sonar.distance_mm() / 10
-        display.scroll(str(distance) ("cm"))
+        display.show((str(distance))("cm"))
         sleep(500)
         radio.send(distance)
 
     if message > 0:
         display.clear()
-        display.scroll(str(message) ("cm"))
+        display.show((str(message))("cm"))
         distance = message
 
         if distance <= 10:
-            display.scroll("to close")
+            display.show("to close")
         else:
-            display.scroll("good")
+            display.show("good")
