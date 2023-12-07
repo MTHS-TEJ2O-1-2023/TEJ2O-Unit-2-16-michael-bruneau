@@ -56,7 +56,7 @@ class HCSR04:
 
 # variables
 sonar = HCSR04()
-message = radio.recieve()
+message = radio.receive()
 
 # setup
 radio.on()
@@ -66,13 +66,13 @@ display.show(Image.HAPPY)
 while True:
     if button_a.is_pressed():
         distance = sonar.distance_mm() / 10
-        display.show((str(distance))("cm"))
+        display.show((str(distance)) + ("cm"))
         sleep(500)
         radio.send(distance)
 
-    if message > 0:
+    if message == distance:
         display.clear()
-        display.show((str(message))("cm"))
+        display.show((str(message)) + ("cm"))
         distance = message
 
         if distance <= 10:
