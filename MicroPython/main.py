@@ -56,7 +56,7 @@ class HCSR04:
 
 # variables
 sonar = HCSR04()
-message = radio.receive()
+
 
 # setup
 radio.on()
@@ -70,11 +70,14 @@ while True:
         sleep(500)
         radio.send(str(distance))
 
+    message = radio.receive()
+
+
     if message:
         display.clear()
-        display.scroll((str(message)) + ("cm"))
+        display.scroll(message + ("cm"))
 
-        if distance <= 10:
+        if (int(message)) <= 10:
             display.scroll("to close")
         else:
             display.scroll("good")
