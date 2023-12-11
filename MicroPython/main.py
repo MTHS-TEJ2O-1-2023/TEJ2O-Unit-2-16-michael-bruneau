@@ -71,13 +71,12 @@ while True:
         radio.send(str(distance))
 
     message = radio.receive()
-    message_number = int(message)
 
     if message:
         display.clear()
         display.scroll(message + ("cm"))
 
-        if message_number <= 10:
+        if int(message) <= 10:
             display.scroll("to close")
         else:
             display.scroll("good")
