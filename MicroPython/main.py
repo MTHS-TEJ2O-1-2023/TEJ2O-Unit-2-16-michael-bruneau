@@ -72,7 +72,6 @@ while True:
 
     message = radio.receive()
 
-
     if message:
         display.clear()
         display.scroll(message + ("cm"))
