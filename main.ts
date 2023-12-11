@@ -29,7 +29,7 @@ input.onButtonPressed(Button.A, function () {
 // waiting for string from other microbit
 radio.onReceivedNumber(function (receivedNumber) {
   basic.clearScreen()
-  basic.showString((receivedNumber).toString() + ('cm'))
+  basic.showString(receivedNumber.toString() + ('cm'))
   distanceFromObject = receivedNumber
 
   // if distanceFromObject is less then or equal to 10 display to close if not dislay ok
