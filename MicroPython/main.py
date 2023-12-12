@@ -75,8 +75,9 @@ while True:
     if message:
         display.clear()
         display.scroll(message + ("cm"))
+        message_int = int(message)
 
-        if int(message) <= 10:
+        if message_int <= 10:
             display.scroll("to close")
         else:
             display.scroll("good")
