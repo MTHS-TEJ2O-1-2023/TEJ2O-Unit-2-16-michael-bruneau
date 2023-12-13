@@ -79,6 +79,7 @@ while True:
 
     message = radio.receive()
 
+    # if message is sent display message to other microbit
     if message:
         display.clear()
         display.scroll(message)
