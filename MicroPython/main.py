@@ -63,11 +63,15 @@ radio.on()
 radio.config(group=7)
 display.show(Image.HAPPY)
 
+# loop
 while True:
     if button_a.is_pressed():
+        # checking distance
         distance = sonar.distance_mm() / 10
         display.scroll((str(distance)) + ("cm"))
         sleep(500)
+
+        # if distance is less than or equal to 10 send to close if not send good
         if distance <= 10:
             radio.send("to close")
         else:
