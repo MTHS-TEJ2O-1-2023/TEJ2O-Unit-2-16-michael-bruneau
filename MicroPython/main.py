@@ -68,16 +68,13 @@ while True:
         distance = sonar.distance_mm() / 10
         display.scroll((str(distance)) + ("cm"))
         sleep(500)
-        radio.send(str(distance))
+        if distance <= 10:
+            radio.send("to close")
+        else:
+            radio.send("good")
 
     message = radio.receive()
 
     if message:
         display.clear()
-        display.scroll(message + ("cm"))
-        message_int = int(message)
-
-        if message_int <= 10:
-            display.scroll("to close")
-        else:
-            display.scroll("good")
+        display.scroll(message)
